@@ -1,0 +1,62 @@
+﻿@model TestApp.Models.Order
+
+<h2>Создание заказа</h2>
+@using (Html.BeginForm("CreateOrder", "Home"))
+{
+    <table>
+        <tr>
+            <th align="left">
+                @Html.LabelFor(m=>m.recipient_city, "Город получателя")
+            </th>
+            <td>
+                @Html.EditorFor(m=>m.recipient_city)
+            </td>
+        </tr>
+        <tr>
+            <th align="left">
+                @Html.LabelFor(m=>m.recipient_adress, "Адрес получателя")
+            </th>
+            <td>
+                @Html.EditorFor(m=>m.recipient_adress)
+            </td>
+        </tr>
+        <tr>
+            <th align="left">
+                @Html.LabelFor(m=>m.sender_city, "Город отправителя")
+            </th>
+            <td>
+                @Html.EditorFor(m=>m.sender_city)
+            </td>
+        </tr>
+        <tr>
+            <th align="left">
+                @Html.LabelFor(m=>m.sender_adress, "Адрес отправителя")
+            </th>
+            <td>
+                @Html.EditorFor(m=>m.sender_adress)
+            </td>
+        </tr>
+        <tr>
+            <th align="left">
+                @Html.LabelFor(m=>m.weight, "Вес груза")
+            </th>
+            <td>
+                @Html.EditorFor(m=>m.weight)
+            </td>
+        </tr>
+        <tr>
+            <th align="left">
+                @Html.LabelFor(m=>m.pickup_date, "Дата забора груза")
+            </th>
+            <td>
+                @Html.EditorFor(m=>m.pickup_date)
+            </td>
+        </tr>
+    </table>
+    <p>
+        <input type="submit" value="Создать заказ" />
+    </p>
+}
+<p>
+    @Html.ActionLink("Посмотреть заказы","ShowOrders")
+</p>

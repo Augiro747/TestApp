@@ -1,0 +1,25 @@
+﻿@model IEnumerable<TestApp.Models.Order>
+
+@if (Model != null)
+{
+    <table>
+        <tr>
+            <th >Номер заказа</th><th>Город получателя</th><th >"Адрес получателя</th><th>Город отправителя</th><th>Адрес отправителя</th><th >Вес груза</th><th>Дата забора груза</th>
+        </tr>
+        @foreach (var item in Model)
+        { 
+            <tr onclick="window.location.href='/Home/ShowOrder?id=@item.id';return false">
+                <td>@item.id</td>
+                <td>@item.recipient_city</td>
+                <td>@item.recipient_adress</td>
+                <td>@item.sender_city</td>
+                <td>@item.sender_adress</td>
+                <td>@item.weight</td>
+                <td>@item.pickup_date</td>
+            </tr>
+        }
+    </table>
+}
+<p>
+    @Html.ActionLink("Создать заказ","CreateOrder")
+</p>
